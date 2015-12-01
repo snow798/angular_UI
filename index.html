@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <title>渠道代理查询</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<script>
+    //自适应REM设置
+    !function(){
+        var isChange= false, oldScreenWidth= 375, oldRem= 50;   // 默认iPhone6为基准[屏款375，默认根字体大小50px]
+        var html= document.getElementsByTagName('html')[0];
+        var getStyle = function (element,attr) {
+            if(typeof window.getComputedStyle!='undefined'){
+                return parseFloat(window.getComputedStyle(element,null)[attr]);
+            }else if(element.currentStyle){
+                return parseFloat(element.currentStyle[attr]);
+            }
+        };
+        function initRem(){
+            console.log(document.body.clientWidth, getStyle(html, 'font-size'));
+            html.style.fontSize= document.body.clientWidth*oldRem/oldScreenWidth+'px';
+            oldScreenWidth= document.body.clientWidth;
+            oldRem= getStyle(html, 'font-size');
+            isChange= false;
+        }
+        document.addEventListener('DOMContentLoaded', function(){
+            initRem();
+        });
+        window.addEventListener('resize', function(){
+            if(!isChange){
+                isChange= true;
+                setTimeout(initRem, 700);
+                //musicPlay.init();
+            }
+        })
+
+    }();
+</script>
+<body>
+    <div class="m_long s_logo" style="display: none;">
+        <div class="s_logo_input s_logo_userID">
+            <em></em>
+            <input type="text" placeholder="请输入用户名/手机号/邮箱">
+        </div>
+        <div class="s_logo_input s_logo_password">
+            <em></em>
+            <input type="text" placeholder="请输入密码">
+        </div>
+
+        <div class="s_logo_commit">登录</div>
+
+        <div class="s_logo_info"><img src="images/info.png">渠道代理加盟，请拨打：<a href="tel: 4000276655">400-027-6655</a></div>
+    </div>
+    <div class="m_long s_queryList" style="display: block;">
+        <div class="s_queryTime">
+            起止时间
+            <input class="s_startTime" type="date" value="2015-01-01"  min="2013-01-01" required/> ~
+            <input class="s_endTime" type="date" value="2015-01-01"  min="2013-01-01" required>
+            <span class="s_queryPost">查询</span>
+        </div>
+        <div class="s_mainList">
+            <dl>
+                <!--<dt><img src="images/time_03.png">2015-11-20 <span>邦卡<a>4</a>人</span></dt>
+                <dd>
+                    <span class="s_num">1</span>
+                    <span class="s_id">15072401234</span>
+                    <span class="s_status">邦卡</span>
+                    <span class="s_time">13:14</span>
+                </dd>
+                <dd>
+
+                    <span class="s_num">2</span>
+                    <span class="s_id">15072401234</span>
+                    <span class="s_status">邦卡</span>
+                    <span class="s_time">13:14</span>
+                </dd>-->
+            </dl>
+        </div>
+    </div>
+
+    <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
